@@ -1,568 +1,1108 @@
-<!-- PROJECTS -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#06111f">
+  <meta
+    name="description"
+    content="Abdelilah Chikhi — CFD engineer focused on turbomachinery, aerodynamics, and numerical flow simulation."
+  >
 
-<style>
-  #projets {
-    --project-text: #edf5fc;
-    --project-muted: #a9becf;
-    --project-border: #244052;
-    --project-accent: #6bd9f2;
+  <title>Abdelilah Chikhi — CFD Engineer | Turbomachinery & Aerodynamics</title>
 
-    padding: 72px max(24px, calc((100% - 1180px) / 2));
-    background: #06111b;
-    color: var(--project-text);
-    font-family: Inter, Arial, sans-serif;
-    scroll-margin-top: 90px;
-  }
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="styles.css">
 
-  #projets * {
-    box-sizing: border-box;
-  }
-
-  #projets .project-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 24px;
-    margin-bottom: 30px;
-  }
-
-  #projets .project-eyebrow {
-    margin: 0 0 12px;
-    color: var(--project-accent);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  #projets h2 {
-    margin: 0 0 14px;
-    font-size: clamp(30px, 4vw, 46px);
-    line-height: 1.1;
-    letter-spacing: -1.5px;
-  }
-
-  #projets .project-intro {
-    max-width: 640px;
-    margin: 0;
-    color: var(--project-muted);
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  #projets .project-cv {
-    flex-shrink: 0;
-    padding: 13px 18px;
-    border-radius: 8px;
-    background: var(--project-accent);
-    color: #06111b;
-    font-size: 13px;
-    font-weight: 700;
-    text-decoration: none;
-  }
-
-  #projets .project-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
-    gap: 24px;
-  }
-
-  #projets .study-card {
-    overflow: hidden;
-    border: 1px solid var(--project-border);
-    border-radius: 16px;
-    background: #0b1b28;
-  }
-
-  #projets .study-card figure {
-    margin: 0;
-    background: #eef2f3;
-  }
-
-  #projets .study-card img {
-    display: block;
-    width: 100%;
-    height: 230px;
-    object-fit: contain;
-  }
-
-  #projets .study-card figcaption {
-    padding: 9px 20px;
-    background: #e4ebef;
-    color: #334b5b;
-    font-size: 11px;
-    line-height: 1.5;
-  }
-
-  #projets .study-body {
-    padding: 24px;
-  }
-
-  #projets .study-domain {
-    margin: 0 0 10px;
-    color: var(--project-accent);
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-  }
-
-  #projets h3 {
-    margin: 0 0 8px;
-    font-size: 26px;
-    line-height: 1.2;
-    letter-spacing: -0.6px;
-  }
-
-  #projets .study-tools {
-    margin: 0 0 20px;
-    color: var(--project-muted);
-    font-size: 12px;
-    line-height: 1.6;
-  }
-
-  #projets .study-summary {
-    margin: 0 0 20px;
-    color: #d4e1eb;
-    font-size: 14px;
-    line-height: 1.7;
-  }
-
-  #projets .study-summary strong {
-    color: var(--project-text);
-  }
-
-  #projets .study-metrics {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 10px;
-    margin: 0 0 16px;
-  }
-
-  #projets .study-metrics > div {
-    padding-left: 12px;
-    border-left: 2px solid #358da7;
-  }
-
-  #projets .study-metrics dt {
-    font-size: 23px;
-    font-weight: 700;
-    line-height: 1.2;
-    letter-spacing: -0.5px;
-  }
-
-  #projets .study-metrics dt small {
-    font-size: 11px;
-    font-weight: 400;
-  }
-
-  #projets .study-metrics dd {
-    margin: 6px 0 0;
-    color: var(--project-muted);
-    font-size: 11px;
-    line-height: 1.5;
-  }
-
-  #projets .study-note {
-    margin: 0 0 18px;
-    color: var(--project-muted);
-    font-size: 12px;
-    line-height: 1.7;
-  }
-
-  #projets details {
-    padding-top: 14px;
-    border-top: 1px solid var(--project-border);
-  }
-
-  #projets summary {
-    padding: 4px 0;
-    color: var(--project-accent);
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-  }
-
-  #projets details ul {
-    display: block;
-    margin: 14px 0;
-    padding-left: 20px;
-    color: #c6d6e2;
-    font-size: 13px;
-    line-height: 1.7;
-    list-style: disc;
-  }
-
-  #projets details li {
-    display: list-item;
-    margin: 7px 0;
-    padding: 0;
-    border: 0;
-    border-radius: 0;
-    background: none;
-  }
-
-  #projets .study-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 18px;
-    margin-top: 20px;
-  }
-
-  #projets .study-links a {
-    color: var(--project-text);
-    font-size: 12px;
-    text-decoration: underline;
-    text-underline-offset: 5px;
-  }
-
-  #projets a:focus-visible,
-  #projets summary:focus-visible {
-    outline: 3px solid var(--project-accent);
-    outline-offset: 5px;
-  }
-
-  #projets .study-wide {
-    grid-column: 1 / -1;
-  }
-
-  #projets .study-wide .study-body {
-    display: grid;
-    grid-template-columns: 1fr 1.3fr;
-    gap: 28px;
-  }
-
-  #projets .study-wide details {
-    grid-column: 1 / -1;
-  }
-
-  #projets .study-workflow {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 16px;
-  }
-
-  #projets .study-workflow span {
-    padding: 7px 10px;
-    border: 1px solid var(--project-border);
-    border-radius: 5px;
-    color: var(--project-muted);
-    font-size: 11px;
-  }
-
-  @media (max-width: 720px) {
+  <style>
+    /* Styles limited to the redesigned projects section. */
     #projets {
-      padding: 44px 18px;
+      --project-text: #edf5fc;
+      --project-muted: #a9becf;
+      --project-border: #244052;
+      --project-accent: #6bd9f2;
+
+      padding: 72px max(24px, calc((100% - 1180px) / 2));
+      background: #06111b;
+      color: var(--project-text);
+      font-family: Inter, Arial, sans-serif;
+      scroll-margin-top: 90px;
+    }
+
+    #projets * {
+      box-sizing: border-box;
     }
 
     #projets .project-heading {
-      flex-direction: column;
-      align-items: flex-start;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    #projets .project-eyebrow {
+      margin: 0 0 12px;
+      color: var(--project-accent);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    #projets h2 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+    }
+
+    #projets .project-intro {
+      max-width: 640px;
+      margin: 0;
+      color: var(--project-muted);
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    #projets .project-cv {
+      flex-shrink: 0;
+      padding: 13px 18px;
+      border-radius: 8px;
+      background: var(--project-accent);
+      color: #06111b;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
     }
 
     #projets .project-grid {
-      grid-template-columns: 1fr;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 24px;
+    }
+
+    #projets .study-card {
+      overflow: hidden;
+      border: 1px solid var(--project-border);
+      border-radius: 16px;
+      background: #0b1b28;
+    }
+
+    #projets .study-card figure {
+      margin: 0;
+      background: #eef2f3;
     }
 
     #projets .study-card img {
-      height: 210px;
+      display: block;
+      width: 100%;
+      height: 230px;
+      object-fit: contain;
+    }
+
+    #projets .study-card figcaption {
+      padding: 9px 20px;
+      background: #e4ebef;
+      color: #334b5b;
+      font-size: 11px;
+      line-height: 1.5;
     }
 
     #projets .study-body {
-      padding: 20px;
+      padding: 24px;
+    }
+
+    #projets .study-domain {
+      margin: 0 0 10px;
+      color: var(--project-accent);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    #projets h3 {
+      margin: 0 0 8px;
+      font-size: 26px;
+      line-height: 1.2;
+      letter-spacing: -0.6px;
+    }
+
+    #projets .study-tools {
+      margin: 0 0 20px;
+      color: var(--project-muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    #projets .study-summary {
+      margin: 0 0 20px;
+      color: #d4e1eb;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    #projets .study-summary strong {
+      color: var(--project-text);
+    }
+
+    #projets .study-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin: 0 0 16px;
+    }
+
+    #projets .study-metrics > div {
+      padding-left: 12px;
+      border-left: 2px solid #358da7;
     }
 
     #projets .study-metrics dt {
-      font-size: 20px;
+      font-size: 23px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    #projets .study-metrics dt small {
+      font-size: 11px;
+      font-weight: 400;
+    }
+
+    #projets .study-metrics dd {
+      margin: 6px 0 0;
+      color: var(--project-muted);
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    #projets .study-note {
+      margin: 0 0 18px;
+      color: var(--project-muted);
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    #projets details {
+      padding-top: 14px;
+      border-top: 1px solid var(--project-border);
+    }
+
+    #projets summary {
+      padding: 4px 0;
+      color: var(--project-accent);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    #projets details ul {
+      display: block;
+      margin: 14px 0;
+      padding-left: 20px;
+      color: #c6d6e2;
+      font-size: 13px;
+      line-height: 1.7;
+      list-style: disc;
+    }
+
+    #projets details li {
+      display: list-item;
+      margin: 7px 0;
+      padding: 0;
+      border: 0;
+      border-radius: 0;
+      background: none;
+    }
+
+    #projets .study-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    #projets .study-links a {
+      color: var(--project-text);
+      font-size: 12px;
+      text-decoration: underline;
+      text-underline-offset: 5px;
+    }
+
+    #projets a:focus-visible,
+    #projets summary:focus-visible {
+      outline: 3px solid var(--project-accent);
+      outline-offset: 5px;
+    }
+
+    #projets .study-wide {
+      grid-column: 1 / -1;
     }
 
     #projets .study-wide .study-body {
-      display: block;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 28px;
     }
 
-    #projets .study-wide .study-summary {
-      margin-top: 20px;
+    #projets .study-wide details {
+      grid-column: 1 / -1;
     }
-  }
-</style>
 
-<section id="projets" aria-labelledby="projects-title">
+    #projets .study-workflow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
 
-  <div class="project-heading">
-    <div>
-      <p class="project-eyebrow">
-        02 / Selected engineering work
-      </p>
+    #projets .study-workflow span {
+      padding: 7px 10px;
+      border: 1px solid var(--project-border);
+      border-radius: 5px;
+      color: var(--project-muted);
+      font-size: 11px;
+    }
 
-      <h2 id="projects-title">
-        The simulations. The findings.
-      </h2>
+    @media (max-width: 720px) {
+      #projets {
+        padding: 44px 18px;
+      }
 
-      <p class="project-intro">
-        Three CFD studies from Flowthermolab’s Aerospace CFD Program.
-        Explore my contribution and results, then open the technical details.
-      </p>
+      #projets .project-heading {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      #projets .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      #projets .study-card img {
+        height: 210px;
+      }
+
+      #projets .study-body {
+        padding: 20px;
+      }
+
+      #projets .study-metrics dt {
+        font-size: 20px;
+      }
+
+      #projets .study-wide .study-body {
+        display: block;
+      }
+
+      #projets .study-wide .study-summary {
+        margin-top: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- HEADER -->
+
+  <header id="header">
+    <a class="brand" href="#top">
+      <b>AC</b>
+      <span>
+        Abdelilah Chikhi
+        <small>CFD Engineer</small>
+      </span>
+    </a>
+
+    <button id="menu" aria-expanded="false" aria-controls="nav">
+      Menu
+    </button>
+
+    <nav id="nav">
+      <a href="#expertise">Expertise</a>
+      <a href="#projets">Projects</a>
+      <a href="#experiences">Experience</a>
+      <a href="#parcours">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a class="pill" href="#contact">Get in touch</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- HOME -->
+
+    <section class="hero" id="top">
+      <div class="flow" aria-hidden="true">
+        <svg viewBox="0 0 760 620">
+          <defs>
+            <linearGradient id="g">
+              <stop stop-color="#18a8ff" stop-opacity="0"/>
+              <stop offset=".5" stop-color="#56d8ff"/>
+              <stop offset="1" stop-color="#18a8ff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+
+          <path
+            class="foil"
+            d="M230 314c98-82 245-96 350-18-114 36-237 48-350 18Z"
+          />
+
+          <g>
+            <path d="M10 125c180-8 240 14 318 84s184 82 420 38"/>
+            <path d="M5 185c178-3 243 13 318 70s180 67 430 34"/>
+            <path d="M0 250c184 0 250 8 330 42s194 41 428 18"/>
+            <path d="M0 310c190 0 257 0 345 0s222 0 415 0"/>
+            <path d="M0 370c183 4 250-5 328-35s199-31 427 5"/>
+            <path d="M8 435c168 9 238-10 310-58s199-46 426 18"/>
+            <path d="M20 500c154 11 225-11 292-72s187-65 415 23"/>
+          </g>
+        </svg>
+
+        <i>Mach 0.24</i>
+        <i>Re 3.1×10⁶</i>
+        <i>α +4.0°</i>
+      </div>
+
+      <div class="hero-copy reveal">
+        <div class="available">
+          <span></span>
+          Available for permanent roles · France
+        </div>
+
+        <p class="eyebrow">
+          CFD · Turbomachinery · Aerodynamics
+        </p>
+
+        <h1>
+          Understanding complex flows.
+          <em>Informing engineering decisions.</em>
+        </h1>
+
+        <p class="lead">
+          CFD engineer focused on turbomachinery and aerodynamics.
+          I use numerical simulation and flow analysis to investigate
+          aerodynamic performance, understand loss mechanisms,
+          and support engineering design.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="#projets">
+            Explore my projects ↘
+          </a>
+
+          <a class="btn ghost" href="#contact">
+            Discuss an opportunity
+          </a>
+        </div>
+
+        <div class="facts">
+          <div>
+            <b>CFD</b>
+            <span>Flow simulation & analysis</span>
+          </div>
+
+          <div>
+            <b>Turbomachinery</b>
+            <span>Compressor aerodynamics</span>
+          </div>
+
+          <div>
+            <b>Aerodynamics</b>
+            <span>Internal & external flows</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+
+    <div class="tools">
+      <span>ANSYS Fluent</span>
+      <span>ANSYS CFX</span>
+      <span>OpenFOAM</span>
+      <span>TurboGrid</span>
+      <span>Vista CCD</span>
+      <span>CFD-Post</span>
+      <span>Python</span>
+      <span>HPC</span>
     </div>
 
-    <a
-      class="project-cv"
-      href="https://drive.google.com/file/d/1EBs392MUPjgMDOcRXcRrd_HA79BQHY8g/view?usp=drive_link"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      View my CV ↗
-    </a>
-  </div>
+    <!-- EXPERTISE -->
 
-  <div class="project-grid">
+    <section class="section" id="expertise">
+      <div class="heading reveal">
+        <p class="eyebrow">01 · Profile</p>
+        <h2>From flow physics to engineering insight.</h2>
+      </div>
 
-    <!-- NASA ROTOR 37 -->
+      <div class="profile">
+        <div class="bio reveal">
+          <p class="big">
+            Fluid mechanics engineer focused on turbomachinery and
+            aerodynamics, with experience in CFD workflows for
+            compressible and incompressible flows, from geometry
+            preparation and mesh generation to solver setup
+            and post-processing.
+          </p>
 
-    <article class="study-card">
-      <figure>
-        <img
-          src="./assets/rotor37.png"
-          alt="NASA Rotor 37: relative Mach contours around the blade passages."
-          width="664"
-          height="462"
-          loading="lazy"
-        >
+          <p>
+            My education at École Centrale Casablanca and Centrale
+            Méditerranée, combined with training at Flowthermolab,
+            brings together aerodynamics, mesh generation,
+            RANS turbulence modelling, and scientific computing.
+          </p>
 
-        <figcaption>
-          Simulation output · Relative Mach number
-        </figcaption>
-      </figure>
-
-      <div class="study-body">
-        <p class="study-domain">
-          Compressible flow / Turbomachinery
-        </p>
-
-        <h3>NASA Rotor 37</h3>
-
-        <p class="study-tools">
-          ANSYS CFX · CFD-Post · 2026
-        </p>
-
-        <p class="study-summary">
-          <strong>Objective:</strong>
-          assess a transonic compressor’s performance.
-          <br>
-          <strong>My work:</strong>
-          simulated the rotor flow and analysed Mach distributions,
-          shock waves, blade-tip flow and aerodynamic losses.
-        </p>
-
-        <dl class="study-metrics">
-          <div>
-            <dt>88.58<small>%</small></dt>
-            <dd>Total-to-total efficiency</dd>
+          <div class="status">
+            <i></i>
+            <span>
+              <b>Available for permanent roles</b>
+              <small>CFD · Turbomachinery · Aerodynamics</small>
+            </span>
           </div>
+        </div>
 
-          <div>
-            <dt>1.889</dt>
-            <dd>Total pressure ratio</dd>
-          </div>
+        <div class="cards">
+          <article class="reveal">
+            <small>01</small>
+            <h3>Computational fluid dynamics</h3>
 
-          <div>
-            <dt>19.64 <small>kg/s</small></dt>
-            <dd>Mass flow rate</dd>
-          </div>
-        </dl>
+            <p>
+              Numerical simulation of turbulent internal and external
+              flows, covering compressible and incompressible conditions.
+            </p>
 
-        <p class="study-note">
-          Against NASA reference values: −2.74% in mass flow and
-          −10.32% in pressure ratio. These differences remain part
-          of the analysis.
-        </p>
+            <ul>
+              <li>ANSYS Fluent</li>
+              <li>ANSYS CFX</li>
+              <li>OpenFOAM</li>
+            </ul>
+          </article>
 
-        <details>
-          <summary>Method & technical findings</summary>
+          <article class="reveal">
+            <small>02</small>
+            <h3>Meshing & pre-processing</h3>
 
-          <ul>
-            <li>
-              Compressible-flow simulation through an axial
-              compressor rotor.
-            </li>
+            <p>
+              Geometry preparation and mesh generation for CFD,
+              with a focus on turbomachinery flow passages.
+            </p>
 
-            <li>
-              Post-processing of pressure, velocity and relative
-              Mach number distributions.
-            </li>
+            <ul>
+              <li>SpaceClaim</li>
+              <li>ANSYS Meshing</li>
+              <li>TurboGrid</li>
+            </ul>
+          </article>
 
-            <li>
-              Investigation of shock waves, tip-clearance flow
-              and aerodynamic loss mechanisms.
-            </li>
+          <article class="reveal">
+            <small>03</small>
+            <h3>Turbomachinery</h3>
 
-            <li>
-              Performance comparison with NASA reference data:
-              the calculated pressure ratio is lower than the reference.
-            </li>
-          </ul>
-        </details>
+            <p>
+              Preliminary compressor design, rotor–stator modelling,
+              and aerodynamic performance assessment.
+            </p>
 
-        <div class="study-links">
-          <a
-            href="./NASA_Rotor_37_Rapport.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Full report PDF ↗
-          </a>
+            <ul>
+              <li>Vista CCD</li>
+              <li>BladeGen</li>
+              <li>Frozen Rotor</li>
+            </ul>
+          </article>
 
-          <a
-            href="./NASA_Rotor_37_Presentation.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Presentation PDF ↗
-          </a>
+          <article class="reveal">
+            <small>04</small>
+            <h3>Turbulence modelling & computing</h3>
+
+            <p>
+              RANS turbulence modelling, near-wall resolution
+              assessment (y+), flow-field post-processing,
+              and parallel computing.
+            </p>
+
+            <ul>
+              <li>k–ε</li>
+              <li>k–ω SST</li>
+              <li>CFD-Post</li>
+              <li>ParaView</li>
+              <li>Python</li>
+              <li>HPC</li>
+            </ul>
+          </article>
         </div>
       </div>
-    </article>
+    </section>
 
-    <!-- AHMED BODY -->
+    <!-- PROJECTS -->
 
-    <article class="study-card">
-      <figure>
-        <img
-          src="./assets/ahmed-body.png"
-          alt="Ahmed Body: velocity magnitude contours showing the separated wake."
-          width="722"
-          height="358"
-          loading="lazy"
-        >
-
-        <figcaption>
-          Simulation output · Velocity magnitude and wake
-        </figcaption>
-      </figure>
-
-      <div class="study-body">
-        <p class="study-domain">
-          Incompressible flow / External aerodynamics
-        </p>
-
-        <h3>Ahmed Body</h3>
-
-        <p class="study-tools">
-          ANSYS Fluent · SpaceClaim · SST k–ω · 2026
-        </p>
-
-        <p class="study-summary">
-          <strong>Objective:</strong>
-          investigate separation, wake development and drag.
-          <br>
-          <strong>My work:</strong>
-          prepared the domain and locally refined mesh, ran a steady
-          RANS calculation and analysed the flow field.
-        </p>
-
-        <dl class="study-metrics">
-          <div>
-            <dt>0.322</dt>
-            <dd>Calculated drag coefficient</dd>
-          </div>
-
-          <div>
-            <dt>0.289</dt>
-            <dd>Literature comparison value</dd>
-          </div>
-
-          <div>
-            <dt>+11.4<small>%</small></dt>
-            <dd>Difference from literature</dd>
-          </div>
-        </dl>
-
-        <p class="study-note">
-          Preliminary comparison with Tian et al. (2017).
-          Geometry, coefficient definitions and mesh sensitivity
-          require further investigation.
-        </p>
-
-        <details>
-          <summary>Method & interpretation</summary>
-
-          <ul>
-            <li>
-              Geometry and domain preparation with local mesh refinement.
-            </li>
-
-            <li>
-              Steady RANS simulation using the SST k–ω turbulence model.
-            </li>
-
-            <li>
-              Post-processing of velocity contours, separation
-              and the downstream wake.
-            </li>
-
-            <li>
-              The drag discrepancy is reported explicitly;
-              mesh independence has not been established.
-            </li>
-          </ul>
-        </details>
-      </div>
-    </article>
-
-    <!-- CENTRIFUGAL COMPRESSOR -->
-
-    <article class="study-card study-wide">
-      <div class="study-body">
+    <section id="projets" aria-labelledby="projects-title">
+      <div class="project-heading">
         <div>
-          <p class="study-domain">
-            Compressor design / Internal flow
+          <p class="project-eyebrow">
+            02 / Selected engineering work
           </p>
 
-          <h3>Centrifugal compressor</h3>
+          <h2 id="projects-title">
+            The simulations. The findings.
+          </h2>
 
-          <p class="study-tools">
-            ANSYS Vista CCD · CFX · 2026
+          <p class="project-intro">
+            Three CFD studies from Flowthermolab’s Aerospace CFD Program.
+            Explore my contribution and results, then open the
+            technical details.
           </p>
-
-          <div class="study-workflow">
-            <span>Preliminary design</span>
-            <span>Geometry & mesh</span>
-            <span>Flow analysis</span>
-          </div>
         </div>
 
-        <p class="study-summary">
-          <strong>Objective:</strong>
-          connect impeller geometry to aerodynamic performance.
-          <br>
-          <strong>My work:</strong>
-          preliminary impeller design, mesh generation and CFD analysis
-          of pressure ratio, efficiency and losses.
-        </p>
-
-        <details>
-          <summary>Design parameters & analysis</summary>
-
-          <ul>
-            <li>
-              Hub and shroud contours, blade geometry,
-              backsweep and tip clearance.
-            </li>
-
-            <li>
-              Mesh generation and simulation of the compressor flow.
-            </li>
-
-            <li>
-              Assessment of pressure rise and aerodynamic losses.
-            </li>
-          </ul>
-        </details>
+        <a
+          class="project-cv"
+          href="https://drive.google.com/file/d/1EBs392MUPjgMDOcRXcRrd_HA79BQHY8g/view?usp=drive_link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View my CV ↗
+        </a>
       </div>
-    </article>
 
-  </div>
-</section>
+      <div class="project-grid">
 
-<!-- EXPERIENCE -->
+        <!-- NASA ROTOR 37 -->
+
+        <article class="study-card">
+          <figure>
+            <img
+              src="./assets/rotor37.png"
+              alt="NASA Rotor 37: relative Mach contours around the blade passages."
+              width="664"
+              height="462"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Simulation output · Relative Mach number
+            </figcaption>
+          </figure>
+
+          <div class="study-body">
+            <p class="study-domain">
+              Compressible flow / Turbomachinery
+            </p>
+
+            <h3>NASA Rotor 37</h3>
+
+            <p class="study-tools">
+              ANSYS CFX · CFD-Post · 2026
+            </p>
+
+            <p class="study-summary">
+              <strong>Objective:</strong>
+              assess a transonic compressor’s performance.
+              <br>
+              <strong>My work:</strong>
+              simulated the rotor flow and analysed Mach distributions,
+              shock waves, blade-tip flow and aerodynamic losses.
+            </p>
+
+            <dl class="study-metrics">
+              <div>
+                <dt>88.58<small>%</small></dt>
+                <dd>Total-to-total efficiency</dd>
+              </div>
+
+              <div>
+                <dt>1.889</dt>
+                <dd>Total pressure ratio</dd>
+              </div>
+
+              <div>
+                <dt>19.64 <small>kg/s</small></dt>
+                <dd>Mass flow rate</dd>
+              </div>
+            </dl>
+
+            <p class="study-note">
+              Against NASA reference values: −2.74% in mass flow and
+              −10.32% in pressure ratio. These differences remain
+              part of the analysis.
+            </p>
+
+            <details>
+              <summary>Method & technical findings</summary>
+
+              <ul>
+                <li>
+                  Compressible-flow simulation through an axial
+                  compressor rotor.
+                </li>
+
+                <li>
+                  Post-processing of pressure, velocity and relative
+                  Mach number distributions.
+                </li>
+
+                <li>
+                  Investigation of shock waves, tip-clearance flow
+                  and aerodynamic loss mechanisms.
+                </li>
+
+                <li>
+                  Performance comparison with NASA reference data:
+                  the calculated pressure ratio is lower than
+                  the reference.
+                </li>
+              </ul>
+            </details>
+
+            <div class="study-links">
+              <a
+                href="./NASA_Rotor_37_Rapport.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Full report PDF ↗
+              </a>
+
+              <a
+                href="./NASA_Rotor_37_Presentation.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Presentation PDF ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- AHMED BODY -->
+
+        <article class="study-card">
+          <figure>
+            <img
+              src="./assets/ahmed-body.png"
+              alt="Ahmed Body: velocity magnitude contours showing the separated wake."
+              width="722"
+              height="358"
+              loading="lazy"
+            >
+
+            <figcaption>
+              Simulation output · Velocity magnitude and wake
+            </figcaption>
+          </figure>
+
+          <div class="study-body">
+            <p class="study-domain">
+              Incompressible flow / External aerodynamics
+            </p>
+
+            <h3>Ahmed Body</h3>
+
+            <p class="study-tools">
+              ANSYS Fluent · SpaceClaim · SST k–ω · 2026
+            </p>
+
+            <p class="study-summary">
+              <strong>Objective:</strong>
+              investigate separation, wake development and drag.
+              <br>
+              <strong>My work:</strong>
+              prepared the domain and locally refined mesh,
+              ran a steady RANS calculation and analysed the flow field.
+            </p>
+
+            <dl class="study-metrics">
+              <div>
+                <dt>0.322</dt>
+                <dd>Calculated drag coefficient</dd>
+              </div>
+
+              <div>
+                <dt>0.289</dt>
+                <dd>Literature comparison value</dd>
+              </div>
+
+              <div>
+                <dt>+11.4<small>%</small></dt>
+                <dd>Difference from literature</dd>
+              </div>
+            </dl>
+
+            <p class="study-note">
+              Preliminary comparison with Tian et al. (2017).
+              Geometry, coefficient definitions and mesh sensitivity
+              require further investigation.
+            </p>
+
+            <details>
+              <summary>Method & interpretation</summary>
+
+              <ul>
+                <li>
+                  Geometry and domain preparation with local
+                  mesh refinement.
+                </li>
+
+                <li>
+                  Steady RANS simulation using the SST k–ω
+                  turbulence model.
+                </li>
+
+                <li>
+                  Post-processing of velocity contours, separation
+                  and the downstream wake.
+                </li>
+
+                <li>
+                  The drag discrepancy is reported explicitly;
+                  mesh independence has not been established.
+                </li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+        <!-- CENTRIFUGAL COMPRESSOR -->
+
+        <article class="study-card study-wide">
+          <div class="study-body">
+            <div>
+              <p class="study-domain">
+                Compressor design / Internal flow
+              </p>
+
+              <h3>Centrifugal compressor</h3>
+
+              <p class="study-tools">
+                ANSYS Vista CCD · CFX · 2026
+              </p>
+
+              <div class="study-workflow">
+                <span>Preliminary design</span>
+                <span>Geometry & mesh</span>
+                <span>Flow analysis</span>
+              </div>
+            </div>
+
+            <p class="study-summary">
+              <strong>Objective:</strong>
+              connect impeller geometry to aerodynamic performance.
+              <br>
+              <strong>My work:</strong>
+              preliminary impeller design, mesh generation and CFD
+              analysis of pressure ratio, efficiency and losses.
+            </p>
+
+            <details>
+              <summary>Design parameters & analysis</summary>
+
+              <ul>
+                <li>
+                  Hub and shroud contours, blade geometry,
+                  backsweep and tip clearance.
+                </li>
+
+                <li>
+                  Mesh generation and simulation of the compressor flow.
+                </li>
+
+                <li>
+                  Assessment of pressure rise and aerodynamic losses.
+                </li>
+              </ul>
+            </details>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+
+    <section class="section" id="experiences">
+      <div class="heading reveal">
+        <p class="eyebrow">03 · Experience</p>
+        <h2>Research & applied engineering.</h2>
+
+        <p>
+          Research and engineering internships involving experimental
+          fluid mechanics, data analysis, and energy performance
+          optimisation.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <article class="reveal">
+          <time>Apr — Jul 2025</time>
+
+          <div>
+            <small>
+              IRPHE · Institut de Recherche sur les Phénomènes Hors
+              Équilibre · Marseille
+            </small>
+
+            <h3>Research Intern — Variable-Density Turbulent Jets</h3>
+
+            <p>
+              Experimental investigation of variable-density turbulent
+              jets. Analysis of turbulence anisotropy using the Lumley
+              diagram, assessment of constant-density models, and
+              refinement of a laser optical setup to reduce
+              measurement noise.
+            </p>
+
+            <ul>
+              <li>Python</li>
+              <li>Laser diagnostics</li>
+              <li>Turbulence</li>
+              <li>Data analysis</li>
+            </ul>
+
+            <div class="project-documents">
+              <a
+                class="btn primary"
+                href="./Turbulent_Jets_Internship_Report.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read the internship report ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="reveal">
+          <time>May — Jul 2024</time>
+
+          <div>
+            <small>
+              A–CID · Conseil, Ingénierie et Développement · Salé, Morocco
+            </small>
+
+            <h3>AI Engineering Intern — Photovoltaic Power Plants</h3>
+
+            <p>
+              Investigation of AI-based approaches to photovoltaic
+              plant performance optimisation. Analysis of solar
+              tracker orientation and the effects of dust and UV
+              radiation on energy performance.
+            </p>
+
+            <ul>
+              <li>Artificial intelligence</li>
+              <li>Python</li>
+              <li>Solar energy</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+
+    <section class="section dark" id="parcours">
+      <div class="heading reveal">
+        <p class="eyebrow">04 · Education</p>
+        <h2>Education & technical training.</h2>
+      </div>
+
+      <div class="timeline">
+        <article class="reveal">
+          <time>2025 — 2026</time>
+
+          <div>
+            <small>Flowthermolab</small>
+            <h3>Aerospace CFD Program</h3>
+
+            <p>
+              Specialised training in CFD for aerospace and
+              turbomachinery applications, covering compressible flows,
+              mesh generation, numerical modelling, and aerodynamic
+              performance analysis.
+            </p>
+
+            <ul>
+              <li>ANSYS CFX</li>
+              <li>ANSYS Fluent</li>
+              <li>Turbomachinery</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="reveal">
+          <time>2024 — 2025</time>
+
+          <div>
+            <small>Centrale Méditerranée · Marseille, France</small>
+
+            <h3>
+              Master’s Programme, Year 2 (M2) — Aeronautics & Transport
+            </h3>
+
+            <p>
+              Advanced study in aerodynamics and fluid mechanics,
+              with applications to aerospace and transport systems.
+            </p>
+
+            <ul>
+              <li>Aeronautics</li>
+              <li>Transport</li>
+              <li>CFD</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="reveal">
+          <time>2022 — 2025</time>
+
+          <div>
+            <small>École Centrale Casablanca · Casablanca, Morocco</small>
+            <h3>Engineering Degree — Fluids & Energy</h3>
+
+            <p>
+              Multidisciplinary engineering education with a
+              specialisation in fluid mechanics, energy systems,
+              and numerical simulation.
+            </p>
+
+            <ul>
+              <li>Fluid mechanics</li>
+              <li>Energy systems</li>
+              <li>Engineering</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="reveal">
+          <time>2020 — 2022</time>
+
+          <div>
+            <small>Morocco</small>
+
+            <h3>
+              Preparatory Classes for Engineering Schools — PCSI / PSI
+            </h3>
+
+            <p>
+              Intensive two-year preparatory programme in mathematics,
+              physics, and engineering sciences for competitive
+              entrance examinations to engineering schools.
+            </p>
+
+            <ul>
+              <li>Mathematics</li>
+              <li>Physics</li>
+              <li>Engineering sciences</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+
+      <div class="languages reveal">
+        <span>Programming & scientific computing</span>
+        <b>Python</b>
+        <b>MATLAB</b>
+        <b>Linux · HPC</b>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+
+    <section class="section" id="certifications">
+      <div class="heading reveal">
+        <p class="eyebrow">05 · Certifications</p>
+        <h2>Professional certifications.</h2>
+      </div>
+
+      <div class="cards">
+        <article class="reveal">
+          <small>01 · Certificate</small>
+          <h3>Fundamentals of Fluid-Solid Interactions</h3>
+
+          <div class="project-documents">
+            <a
+              class="btn primary"
+              href="./Fundamentals_of_Fluid_Solid_Interactions.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View certificate ↗
+            </a>
+          </div>
+        </article>
+
+        <article class="reveal">
+          <small>02 · Certificate</small>
+          <h3>Turbomachinery</h3>
+
+          <div class="project-documents">
+            <a
+              class="btn primary"
+              href="./Turbomachinery_Certificate.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View certificate ↗
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact" id="contact">
+      <div class="reveal">
+        <p class="eyebrow">06 · Contact</p>
+        <h2>Let’s discuss your CFD challenges.</h2>
+
+        <p>
+          Seeking a permanent CFD engineering role focused on
+          turbomachinery, aerodynamics, or fluid flow simulation
+          in the aerospace and energy sectors.
+        </p>
+      </div>
+
+      <div class="contact-card reveal">
+        <small>Career opportunities</small>
+        <h3>Let’s talk about your engineering needs.</h3>
+
+        <a
+          class="btn primary"
+          href="https://github.com/CHIKHIAbdelilah"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View my GitHub profile ↗
+        </a>
+
+        <p>
+          Based in France · Open to relocation across France ·
+          Available immediately
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <a class="brand" href="#top">
+      <b>AC</b>
+      <span>
+        Abdelilah Chikhi
+        <small>CFD Engineer</small>
+      </span>
+    </a>
+
+    <p>© 2026 Abdelilah Chikhi</p>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
